@@ -1,6 +1,6 @@
 
 import { Layout } from "@/components/layout/Layout";
-import { Check, Leaf, Recycle, Factory, Package, Heart, Water, Globe } from "lucide-react";
+import { Check, Leaf, Recycle, Factory, Package, Heart, Droplets, Globe } from "lucide-react";
 
 export default function Sustainability() {
   return (
@@ -90,7 +90,7 @@ export default function Sustainability() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="flex items-start">
               <div className="mr-4">
-                <Water className="h-6 w-6 text-primary" />
+                <Droplets className="h-6 w-6 text-primary" />
               </div>
               <div>
                 <h3 className="font-bold mb-2">Water Conservation</h3>
