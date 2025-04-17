@@ -1,11 +1,12 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Search, ShoppingBag, User, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
 
 const categories = [
   { name: "New Arrivals", href: "/category/new-arrivals" },
@@ -19,6 +20,8 @@ const categories = [
 export function Header({ cartItemsCount = 0 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
@@ -92,11 +95,13 @@ export function Header({ cartItemsCount = 0 }) {
             <Search size={20} />
           </Button>
 
-          <Link to="/account">
-            <Button variant="ghost" size="icon">
-              <User size={20} />
-            </Button>
-          </Link>
+          <Button 
+            variant="ghost" 
+            size="icon"
+            onClick={() => navigate(user ? "/account" : "/auth")}
+          >
+            <User size={20} />
+          </Button>
           
           <Link to="/cart" className="relative">
             <Button variant="ghost" size="icon">
