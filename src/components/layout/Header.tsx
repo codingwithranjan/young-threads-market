@@ -7,6 +7,15 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 
 const categories = [
   { name: "New Arrivals", href: "/category/new-arrivals" },
@@ -25,24 +34,8 @@ export function Header({ cartItemsCount = 0 }) {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-      <div className="container flex h-16 items-center">
-        <div className="mr-4 hidden md:flex">
-          <Link to="/" className="mr-6 flex items-center">
-            <span className="font-bold text-xl">YOUNG THREADS</span>
-          </Link>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            {categories.map((category) => (
-              <Link
-                key={category.name}
-                to={category.href}
-                className="transition-colors hover:text-primary"
-              >
-                {category.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
-
+      <div className="container flex h-16 items-center justify-between">
+        {/* Mobile menu button */}
         <Button
           variant="ghost"
           size="icon"
@@ -52,11 +45,32 @@ export function Header({ cartItemsCount = 0 }) {
           {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
         </Button>
 
-        <Link to="/" className="md:hidden mr-auto flex items-center">
-          <span className="font-bold text-lg">YOUNG THREADS</span>
+        {/* Logo */}
+        <Link to="/" className="flex items-center">
+          <span className="font-bold text-lg md:text-xl bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-transparent bg-clip-text transform hover:scale-105 transition-transform">
+            GENZ FASHION
+          </span>
         </Link>
 
-        <div className="ml-auto flex items-center gap-2">
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden md:flex items-center justify-center flex-1">
+          <NavigationMenu>
+            <NavigationMenuList>
+              {categories.map((category) => (
+                <NavigationMenuItem key={category.name}>
+                  <Link to={category.href}>
+                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                      {category.name}
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
+
+        {/* Search and Actions */}
+        <div className="flex items-center gap-2">
           <div className={cn("relative", isSearchOpen ? "flex" : "hidden md:flex")}>
             <Button
               variant="ghost"

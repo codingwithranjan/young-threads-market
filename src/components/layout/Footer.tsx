@@ -8,9 +8,9 @@ export function Footer() {
       <div className="container py-12 md:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="font-bold text-lg mb-4">Young Threads</h3>
+            <h3 className="font-bold text-lg mb-4 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-400 text-transparent bg-clip-text">GENZ FASHION</h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Stylish, comfortable, and durable fashion for boys of all ages.
+              Stylish, comfortable, and trendy fashion for the Gen Z lifestyle.
             </p>
             <div className="flex gap-4">
               <a href="https://instagram.com" className="hover:text-primary" aria-label="Instagram">
@@ -88,7 +88,7 @@ export function Footer() {
         
         <div className="border-t mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-xs text-muted-foreground mb-4 sm:mb-0">
-            &copy; {new Date().getFullYear()} Young Threads. All rights reserved.
+            &copy; {new Date().getFullYear()} GENZ FASHION. All rights reserved.
           </p>
           <div className="flex gap-4">
             <img src="/visa.svg" alt="Visa" className="h-6 w-auto" />
