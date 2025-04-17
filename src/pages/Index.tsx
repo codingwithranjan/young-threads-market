@@ -46,60 +46,76 @@ export default function Index() {
     },
   ];
 
+  const heroSlides = [
+    {
+      image: "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=900&q=80",
+      title: "New Season, New Style",
+      description: "Discover our latest collection for the coolest kids on the block",
+      buttonText: "Shop Now",
+      buttonLink: "/category/new-arrivals"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=900&q=80",
+      title: "Summer Adventures Await",
+      description: "Gear up with our durable and stylish outdoor collection",
+      buttonText: "Explore Collection",
+      buttonLink: "/category/jackets"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1615939975344-27ee76cb7ad5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=900&q=80",
+      title: "Trending Outfits",
+      description: "Boy's fashion that stands out from the crowd",
+      buttonText: "View Collection",
+      buttonLink: "/category/featured"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=900&q=80",
+      title: "Back To School",
+      description: "Prepare for the new school year with our stylish uniforms",
+      buttonText: "Shop School Essentials",
+      buttonLink: "/category/school"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1505692433770-36f19f51681d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=900&q=80",
+      title: "Sport Collection",
+      description: "Performance wear for active kids who love sports",
+      buttonText: "Shop Sportswear",
+      buttonLink: "/category/sportswear"
+    }
+  ];
+
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative">
         <Carousel className="w-full">
           <CarouselContent>
-            <CarouselItem>
-              <div className="relative h-[500px] md:h-[600px]">
-                <img
-                  src="https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=900&q=80"
-                  alt="Boys fashion"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
-                  <div className="container">
-                    <div className="max-w-lg text-white">
-                      <h1 className="text-3xl md:text-5xl font-bold mb-4">New Season, New Style</h1>
-                      <p className="text-lg mb-6">
-                        Discover our latest collection for the coolest kids on the block
-                      </p>
-                      <Link to="/category/new-arrivals">
-                        <Button size="lg" className="hover-lift">
-                          Shop Now
-                        </Button>
-                      </Link>
+            {heroSlides.map((slide, index) => (
+              <CarouselItem key={index}>
+                <div className="relative h-[500px] md:h-[600px]">
+                  <img
+                    src={slide.image}
+                    alt={slide.title}
+                    className="h-full w-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
+                    <div className="container">
+                      <div className="max-w-lg text-white">
+                        <h1 className="text-3xl md:text-5xl font-bold mb-4">{slide.title}</h1>
+                        <p className="text-lg mb-6">
+                          {slide.description}
+                        </p>
+                        <Link to={slide.buttonLink}>
+                          <Button size="lg" className="hover-lift">
+                            {slide.buttonText}
+                          </Button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </CarouselItem>
-            <CarouselItem>
-              <div className="relative h-[500px] md:h-[600px]">
-                <img
-                  src="https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1600&h=900&q=80"
-                  alt="Summer collection"
-                  className="h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
-                  <div className="container">
-                    <div className="max-w-lg text-white">
-                      <h1 className="text-3xl md:text-5xl font-bold mb-4">Summer Adventures Await</h1>
-                      <p className="text-lg mb-6">
-                        Gear up with our durable and stylish outdoor collection
-                      </p>
-                      <Link to="/category/jackets">
-                        <Button size="lg" className="hover-lift">
-                          Explore Collection
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
+              </CarouselItem>
+            ))}
           </CarouselContent>
           <CarouselPrevious />
           <CarouselNext />
