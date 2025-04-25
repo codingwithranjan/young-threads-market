@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter } from "lucide-react";
+import { Facebook, Instagram, Twitter, Map } from "lucide-react";
 
 export function Footer() {
   return (
@@ -72,7 +72,8 @@ export function Footer() {
                 ["Returns", "/returns"],
                 ["Size Guide", "/size-guide"],
                 ["FAQ", "/faq"],
-                ["Contact Us", "/contact"]
+                ["Contact Us", "/contact"],
+                ["Site Architecture", "/site-architecture"]
               ].map(([name, href]) => (
                 <li key={name}>
                   <Link 

@@ -1,0 +1,136 @@
+
+<svg width="1000" height="800" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Styles -->
+  <style>
+    .page-box { fill: #f0f9ff; stroke: #3b82f6; stroke-width: 2; }
+    .category-box { fill: #f0fdfa; stroke: #14b8a6; stroke-width: 2; }
+    .protected-box { fill: #fef2f2; stroke: #ef4444; stroke-width: 2; rx: 5; ry: 5; }
+    .info-box { fill: #fdf2f8; stroke: #db2777; stroke-width: 2; }
+    .arrow { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    .dashed-arrow { stroke: #64748b; stroke-width: 2; fill: none; marker-end: url(#arrowhead); stroke-dasharray: 5,5; }
+    .main-label { font-family: Arial; font-size: 16px; font-weight: bold; text-anchor: middle; }
+    .label { font-family: Arial; font-size: 14px; text-anchor: middle; }
+    .note { font-family: Arial; font-size: 12px; fill: #64748b; text-anchor: middle; }
+    .legend-box { fill: white; stroke: #64748b; stroke-width: 1; }
+    .legend-text { font-family: Arial; font-size: 12px; }
+  </style>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="40" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle">GENZ FASHION Website Architecture</text>
+  
+  <!-- Main pages -->
+  <rect x="400" y="100" width="200" height="80" class="page-box" rx="5" ry="5" />
+  <text x="500" y="145" class="main-label">Home Page</text>
+  <text x="500" y="165" class="note">(Index.tsx)</text>
+  
+  <!-- Categories Section -->
+  <rect x="100" y="260" width="160" height="60" class="category-box" rx="5" ry="5" />
+  <text x="180" y="295" class="label">New Arrivals</text>
+  
+  <rect x="280" y="260" width="160" height="60" class="category-box" rx="5" ry="5" />
+  <text x="360" y="295" class="label">T-Shirts</text>
+  
+  <rect x="460" y="260" width="160" height="60" class="category-box" rx="5" ry="5" />
+  <text x="540" y="295" class="label">Jeans</text>
+  
+  <rect x="640" y="260" width="160" height="60" class="category-box" rx="5" ry="5" />
+  <text x="720" y="295" class="label">Jackets</text>
+  
+  <rect x="820" y="260" width="160" height="60" class="category-box" rx="5" ry="5" />
+  <text x="900" y="295" class="label">Shoes</text>
+  
+  <text x="500" y="230" class="main-label">Category Pages</text>
+  <text x="500" y="250" class="note">(CategoryPage.tsx)</text>
+  
+  <!-- Product Details -->
+  <rect x="400" y="380" width="200" height="80" class="page-box" rx="5" ry="5" />
+  <text x="500" y="420" class="main-label">Product Detail</text>
+  <text x="500" y="440" class="note">(ProductDetail.tsx)</text>
+  
+  <!-- Cart & Checkout flow -->
+  <rect x="400" y="520" width="200" height="80" class="page-box" rx="5" ry="5" />
+  <text x="500" y="560" class="main-label">Cart</text>
+  <text x="500" y="580" class="note">(Cart.tsx)</text>
+  
+  <!-- Auth & Account -->
+  <rect x="100" y="520" width="200" height="80" class="page-box" rx="5" ry="5" />
+  <text x="200" y="560" class="main-label">Authentication</text>
+  <text x="200" y="580" class="note">(Auth.tsx)</text>
+  
+  <rect x="100" y="650" width="200" height="80" class="protected-box" />
+  <text x="200" y="690" class="main-label">User Account</text>
+  <text x="200" y="710" class="note">(Account.tsx - Protected)</text>
+  
+  <!-- Information Pages -->
+  <rect x="700" y="520" width="80" height="50" class="info-box" rx="5" ry="5" />
+  <text x="740" y="550" class="label">About</text>
+  
+  <rect x="800" y="520" width="80" height="50" class="info-box" rx="5" ry="5" />
+  <text x="840" y="550" class="label">FAQ</text>
+  
+  <rect x="700" y="580" width="80" height="50" class="info-box" rx="5" ry="5" />
+  <text x="740" y="610" class="label">Returns</text>
+  
+  <rect x="800" y="580" width="80" height="50" class="info-box" rx="5" ry="5" />
+  <text x="840" y="610" class="label">Contact</text>
+  
+  <rect x="700" y="640" width="80" height="50" class="info-box" rx="5" ry="5" />
+  <text x="740" y="670" class="label">Terms</text>
+  
+  <rect x="800" y="640" width="80" height="50" class="info-box" rx="5" ry="5" />
+  <text x="840" y="670" class="label">Privacy</text>
+  
+  <text x="780" y="490" class="main-label">Information Pages</text>
+  
+  <!-- Connections -->
+  <!-- Home to Categories -->
+  <path d="M500 180 L500 220" class="arrow" />
+  
+  <!-- Categories to Product -->
+  <path d="M180 320 C180 350 350 370 400 420" class="arrow" />
+  <path d="M360 320 C360 350 400 370 440 380" class="arrow" />
+  <path d="M540 320 C540 350 500 350 500 380" class="arrow" />
+  <path d="M720 320 C720 350 600 370 560 380" class="arrow" />
+  <path d="M900 320 C900 350 650 370 600 420" class="arrow" />
+  
+  <!-- Product to Cart -->
+  <path d="M500 460 L500 520" class="arrow" />
+  
+  <!-- Home to Auth -->
+  <path d="M400 140 C300 140 200 350 200 520" class="arrow" />
+  
+  <!-- Auth to Account -->
+  <path d="M200 600 L200 650" class="arrow" />
+  
+  <!-- Home to Info Pages -->
+  <path d="M600 140 C750 140 780 400 780 490" class="dashed-arrow" />
+  
+  <!-- Legend -->
+  <rect x="50" y="730" width="900" height="50" class="legend-box" rx="5" ry="5" />
+  
+  <!-- Legend items -->
+  <rect x="70" y="745" width="20" height="20" class="page-box" rx="2" ry="2" />
+  <text x="100" y="760" class="legend-text" text-anchor="start">Main Pages</text>
+  
+  <rect x="200" y="745" width="20" height="20" class="category-box" rx="2" ry="2" />
+  <text x="230" y="760" class="legend-text" text-anchor="start">Category Pages</text>
+  
+  <rect x="360" y="745" width="20" height="20" class="protected-box" />
+  <text x="390" y="760" class="legend-text" text-anchor="start">Protected Routes</text>
+  
+  <rect x="520" y="745" width="20" height="20" class="info-box" rx="2" ry="2" />
+  <text x="550" y="760" class="legend-text" text-anchor="start">Information Pages</text>
+  
+  <line x1="650" y1="745" x2="680" y2="745" class="arrow" />
+  <text x="720" y="760" class="legend-text" text-anchor="start">Direct Navigation</text>
+  
+  <line x1="780" y1="745" x2="810" y2="745" class="dashed-arrow" />
+  <text x="850" y="760" class="legend-text" text-anchor="start">Secondary Navigation</text>
+</svg>

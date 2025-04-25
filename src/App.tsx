@@ -22,6 +22,7 @@ import About from "./pages/About";
 import Sustainability from "./pages/Sustainability";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
+import { SiteArchitecture } from "./components/SiteArchitecture";
 
 const queryClient = new QueryClient();
 
@@ -55,6 +56,7 @@ const App = () => (
             <Route path="/sustainability" element={<Sustainability />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
+            <Route path="/site-architecture" element={<SiteArchitecture />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
